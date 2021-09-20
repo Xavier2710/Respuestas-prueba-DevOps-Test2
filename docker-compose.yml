@@ -1,0 +1,15 @@
+version: '3'
+services:
+  script:
+    container_name: ejecutar-script
+    build: ubuntu/.
+    volumes:
+      - "${PWD}/archivos/:/ubuntu/"
+
+  web:
+    container_name: web-container
+    build: nginx/.
+    ports: 
+      - "8081:80"
+    volumes:
+      - "${PWD}/archivos/:/usr/share/nginx/html/"
